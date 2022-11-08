@@ -14,10 +14,15 @@ else{
 
 //funcion de opciones del catologo de entradas
 function catalogoDeEntradas(){
+    //arrays y objetos, hay una array con objetos adentro
+    const peliculas = [
+        {nombre: "Pirates del caribes",},
+        {nombre: "Catch me if you can"},
+        {nombre: "El plan perfecto"},
+    ]
     alert("Bienvenido a life cinemas")
+    let opciones= prompt(`Elige el catalogo de peliculas: \n1 - ${peliculas[0].nombre} 1 \n2 -${peliculas[1].nombre} \n3 - ${peliculas[2].nombre}`);
 
-    let opciones= prompt("Elige el catalogo de peliculas: \n1 - Piratas del caribe 1 \n2 -Catch me if you can \n3 - El plan perfecto");
-    
     switch (opciones){
         case "1":
             console.log("Elegiste Piratas del caribe");
@@ -34,7 +39,7 @@ function catalogoDeEntradas(){
     //llamo funcion comprar
     comprar()
 
-}
+
 //funcion comprar sia pagar es true mientras que sea true ejecuta hasta que sea false
 function comprar(){
     let pagar = true;
@@ -76,6 +81,45 @@ function combos(){
     } else {
         alert("bien disfrute la pelicula")
     }
+} 
+alert("para salir del cine tienes que hacer un quiz");
+//array de lista de objetos de respuestas
+const listaderespuestas = [
+    {respuesta1: "a",},
+    {respuesta2: "b"},
+    {respuesta3: "c"},
+]
+//si la variable opciones de mas arriba que es la pelicula que eligieron, coincide con la posicion 0 de la array que defini mas arriba que tiene objetos de la lista de peliculas a elegir... que me pregunte la siguente pregunta, y si le erra para poder salir del cine sale un alert que dice que tiene que pagar multa
+function preguntasdelQuiz(){
+if(opciones == `${peliculas[0].nombre}`){
+    let preguntaQuiz = prompt(`Pregunta : quien es el actor principal de la pelicula? \n1- Brad Pitt ${listaderespuestas[0].respuesta1} \n2-Jonny Deep ${listaderespuestas[1].respuesta2} \n3-Orlando Blum ${listaderespuestas[2].respuesta3} \n responde con a,b o c`);
+
+    if(preguntaQuiz == `${listaderespuestas[1].respuesta2}`){
+        alert("tu respuesta es correcta puedes salir del cine");
+        console.log("respuesta correcta puedes salir del cine");
+        }else{ alert("No puedes salir del cine tiene que pagar $100")
+    }
 }
-
-
+//si la variable opciones de mas arriba que es la pelicula que eligieron, coincide con la posicion 1 de la array que defini mas arriba que tiene objetos de la lista de peliculas a elegir... que me pregunte la siguente pregunta, y si le erra para poder salir del cine sale un alert que dice que tiene que pagar multa
+if(opciones == `${peliculas[1].nombre}`){
+    let preguntaQuiz1 = prompt(`Pregunta: donde termina trabajando el actor principal? \n1- En la policia ${listaderespuestas[0].respuesta1} \n2-En una tienda de ropa ${listaderespuestas[1].respuesta2} \n3-En un avion ${listaderespuestas[2].respuesta3} \n responde con a,b o c`);
+    
+    if(preguntaQuiz1 == `${listaderespuestas[0].respuesta2}`){
+        alert("tu respuesta es correcta puedes salir del cine");
+        console.log("respuesta correcta puedes salir del cine");
+        }else{ alert("No puedes salir del cine tiene que pagar $100")
+    }
+}
+//si la variable opciones de mas arriba que es la pelicula que eligieron, coincide con la posicion 2 de la array que defini mas arriba que tiene objetos de la lista de peliculas a elegir... que me pregunte la siguente pregunta, y si le erra para poder salir del cine sale un alert que dice que tiene que pagar multa
+if(opciones == `${peliculas[2].nombre}`){
+    let preguntaQuiz2 = prompt(`Pregunta: Como logra escapar el ultimo ladron \n1- No logra escapar ${listaderespuestas[0].respuesta1} \n2-Por el techo ${listaderespuestas[1].respuesta2} \n3-Por la puerta ${listaderespuestas[2].respuesta3} \n responde con a,b o c`);
+        
+    if(preguntaQuiz2 == `${listaderespuestas[2].respuesta2}`){
+        alert("tu respuesta es correcta puedes salir del cine");
+        console.log("respuesta correcta puedes salir del cine");
+        }else{ alert("No puedes salir del cine tiene que pagar $100")
+    }
+}
+}
+preguntasdelQuiz();
+}
