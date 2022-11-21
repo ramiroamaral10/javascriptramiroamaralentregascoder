@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //consula de edad
 let edadcliente= parseInt(prompt("Ingrese su edad para entrar al cine"))
 
@@ -142,3 +143,120 @@ if(opciones == "3"){
 }
 
 }
+=======
+
+//creo elementos con dom 
+const ul1 =document.createElement('ul');
+const form=document.querySelector('.navegacion');
+console.log(form)
+
+//agrego texto
+ul1.textContent= '1- Piratas del caribe';
+
+console.log(ul1);
+
+//selecciono donde lo agrego en el html
+
+form.insertBefore(ul1, form.children[3]);
+console.log(form);
+//registro un evento cuando pasao por arriba con el mouse en los titulos se pone negro
+const cambiocolortitulo=document.querySelector('.cambiocoloranegro');
+
+cambiocolortitulo.addEventListener('mouseout', () => {
+    cambiocolortitulo.style.backgroundColor = 'transparent';
+})
+
+cambiocolortitulo.addEventListener('mouseenter', () => {
+    cambiocolortitulo.style.backgroundColor = 'black';
+})
+const cambiocolortitulo2 =document.querySelector('.cambiocoloranegro2');
+
+cambiocolortitulo2.addEventListener('mouseout', () => {
+    cambiocolortitulo2.style.backgroundColor = 'transparent';
+})
+
+cambiocolortitulo2.addEventListener('mouseenter', () => {
+    cambiocolortitulo2.style.backgroundColor = 'black';
+})
+
+
+//agrego estilo de fondo
+function crearh2(){
+    const agregoh2fondo =document.createElement('h2');
+console.log(agregoh2fondo);
+agregoh2fondo.textContent='Life cinemas';
+
+const seleccionoh2 =document.querySelector('h2');
+
+seleccionoh2.append(agregoh2fondo);
+
+    
+}
+//ventana de modal
+const btnAbrirModal= document.querySelector('#btn-abrir-modal');
+const btnCerrarModal= document.querySelector('#btn-cerrar-modal');
+const modal=document.querySelector('#modal');
+btnAbrirModal.addEventListener('click',()=>{
+    modal.showModal();
+})
+btnCerrarModal.addEventListener('click',()=>{
+    modal.close();
+})
+//arreglo que cotiene las respuestas correctas
+let correctas= [3,1];
+// arreglo donde se guardan las respuestas del usuario
+let opcionelegida=[];
+let cantidadcorrectas=0;
+//funcion que toma el numero de preungta y el input de esa pregunta
+function respuesta(numeropregunta, seleccionada){
+    opcionelegida[numeropregunta]=seleccionada.value;
+}
+function corregir(){
+    cantidadcorrectas=0;
+    for(i=0; i< correctas.length; i++){
+        if(correctas[i] == opcionelegida[i]){
+            cantidadcorrectas++;
+        }
+    }
+    document.getElementById('resultado').innerHTML =cantidadcorrectas;
+
+}
+//selecciono con queryselector las id de los inputs y del boton
+const input1= document.querySelector('#id1');
+const input2 = document.querySelector('#id2');
+const input3 = document.querySelector('#id3');
+const boton = document.querySelector('.btn');
+//reo evento clik cuando haga click en el boton enviar datos me va a guardar un localstorage con key value como key le paso nombre del valor del input y como valor le paso la variable creada.value para que me guarde el valor de ese input,despues con get item llamo ala key connconsole log
+boton.addEventListener('click',()=>{
+    localStorage.setItem('valordeinput1', input1.value);
+    console.log(_json());
+    console.log(localStorage.getItem('valordeinput1'))}
+)
+boton.addEventListener('click',()=>{
+    localStorage.setItem('valordeinput2', input2.value);
+    console.log(_json());
+    console.log(localStorage.getItem('valordeinput2'))}
+)
+boton.addEventListener('click',()=>{
+    localStorage.setItem('valordeinput3', input3.value);
+    console.log(_json());
+    console.log(localStorage.getItem('valordeinput3'))}
+)
+//creo una variable con un objeto vacio para guardar
+//creo funcion para pasar a json la info del localstorage
+//itero el largo del local storage y igualo la variable vacia y a la iteracion del local storage y me pasa la info con un get item para guardar la info en la variable vacia
+const pasarajson={};
+function _json(){
+for(let i=0;i<localStorage.length; i++){
+    pasarajson[localStorage.key(i)]=localStorage.getItem(localStorage.key(i))
+    
+}
+return pasarajson;
+}
+const guardojson = _json();
+console.log(guardojson);
+
+
+
+
+>>>>>>> 6b5db3c (tercer entrega)
